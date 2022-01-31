@@ -1,0 +1,50 @@
+{% extends 'news/base.html' %}
+{% block content %}
+<style>
+      .wrapper
+      {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+      }
+        .message
+        {
+            max-width: 500px;
+            width: 100%;
+            background-color: orange;
+            padding:20px;
+            border-radius: 10px;
+        }
+        .message *
+        {
+            width: 100%;
+        }
+        textarea
+        {
+            margin-top: 10px;
+        }
+        input
+        {
+            margin-top: 20px;
+        }
+        button
+        {
+            width: 100%;
+        }
+
+
+</style>
+<div class="wrapper">
+    <div class="message">
+
+        <h1>Message</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.user }}
+            {{ form.text }}<br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'news/base.html' %}
+{% block title %}
+{{news.title}}
+{% endblock %}
+{% block content %}
+<style>
+.container-f
+{
+    text-align:center;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+.wrapper
+{
+    max-width:600px;
+    width:100%;
+    margin-top:40px
+}
+img
+{
+    width:100%;
+}
+</style>
+<div class="container-f">
+    <div class="wrapper">
+        <h1>{{ news.title }}</h1>
+        <img src="{{news.image.url}}">
+        <small>{{ news.category }}</small><br>
+        <hr>
+        <p>{{ news.description }}</p>
+    </div>
+</div>
+
+{% endblock %}

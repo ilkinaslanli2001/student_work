@@ -1,0 +1,39 @@
+{% extends 'news/base.html' %}
+{% block content %}
+<style>
+    .wrapper
+    {
+        padding-top:20px;
+       text-align:center;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+    img
+    {
+        height:200px;
+    }
+    .card{
+        margin:0 10px;
+        }
+
+</style>
+<div class="wrapper">
+    {% for news in news %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{news.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <a href="{% url 'news_detail' news.pk %}"><h5 class="card-title">{{news.title|truncatechars:20}}</h5></a>
+            <p class="card-text"> {{news.description|truncatechars:150}}</p>
+        </div>
+
+        <div class="card-body">
+            <a href="#" class="card-link">{{news.category}}</a>
+
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
